@@ -6,26 +6,31 @@ export default class Mell extends React.Component {
 
   constructor(props){
     super(props);
-    this.state ={ isLoading: true}
+    this.state ={
+       isLoading: true,
+       dataSource:[]
+    }
   }
 
-  szavazat=(szam)=>{
-    //alert(szam)
-    var bemenet={
-      bevitel1:szam
-    }
+  componentDidMount(){
+    return fetch('http://192.168.2.112:3000/gyakorlatok')
+      .then((response) => response.json())
+      .then((responseJson) => {
 
-  fetch("http://localhost:3000/izomcsoport", {
-      method: "POST",
-      body: JSON.stringify(bemenet),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    }
-  
-  )
-  .then(x => x.text())
-  .then(y => alert(y));
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson,
+        }, function(){
 
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
   }
+
+
 
 
   
@@ -49,7 +54,7 @@ export default class Mell extends React.Component {
 
           <View >
           <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.gyakorlat_nev} </Text>
-          <Image  source={{uri: 'http://localhost:3000/'+item.gyakorlat_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
+          <Image  source={{uri: 'http://192.168.2.112:3000/'+item.gyakorlat_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
           <Text style={{color:"brown",fontSize:20,textAlign:"center",marginTop:15,marginBottom:5}}   >{item.gyakorlat_leiras} </Text>
           
           </View>
