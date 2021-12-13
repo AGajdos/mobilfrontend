@@ -41,11 +41,63 @@ export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Mell" component={Melllap}  />
-        <Drawer.Screen name="Hát" component={Hatlap} />
-        <Drawer.Screen name="Bicepsz" component={Bicepszlap} />
-        <Drawer.Screen name="Tricepsz" component={Tricepszlap} />
-        <Drawer.Screen name="Vall" component={Valllap} />
+        <Drawer.Screen name="Mell" component={Melllap}
+        options={{
+          title: 'Mell',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+        
+        <Drawer.Screen name="Hát" component={Hatlap} 
+         options={{
+          title: 'Hát',
+          headerStyle: {
+            backgroundColor: '#4f3222',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+
+        <Drawer.Screen name="Bicepsz" component={Bicepszlap} 
+         options={{
+          title: 'Bicepsz',
+          headerStyle: {
+            backgroundColor: '#4f3222',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+        <Drawer.Screen name="Tricepsz" component={Tricepszlap} 
+         options={{
+          title: 'Tricepsz',
+          headerStyle: {
+            backgroundColor: '#4f3222',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+        <Drawer.Screen name="Vall" component={Valllap} 
+         options={{
+          title: 'Váll',
+          headerStyle: {
+            backgroundColor: '#4f3222',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
       </Drawer.Navigator>
     </NavigationContainer>
   );
