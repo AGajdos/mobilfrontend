@@ -2,11 +2,18 @@ import * as React from 'react';
 import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
+import Fooldal from './Fooldal';
 import Mell from './Mell';
 import Hat from './Hat';
 import Bicepsz from './Bicepsz';
 import Tricepsz from './Tricepsz';
 import Vall from './Vall';
+
+function Fooldallap({ navigation }) {
+  return (
+    <Fooldal/>
+  );
+}
 
 function Melllap({ navigation }) {
   return (
@@ -40,7 +47,20 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator initialRouteName="Home">
+      <Drawer.Navigator initialRouteName="Fooldal">
+
+      <Drawer.Screen name="Fooldal" component={Fooldallap}
+        options={{
+          title: 'Főpoldal',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+
         <Drawer.Screen name="Mell" component={Melllap}
         options={{
           title: 'Mell',
@@ -57,7 +77,7 @@ export default function App() {
          options={{
           title: 'Hát',
           headerStyle: {
-            backgroundColor: '#4f3222',
+            backgroundColor: '#0C463C',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -69,7 +89,7 @@ export default function App() {
          options={{
           title: 'Bicepsz',
           headerStyle: {
-            backgroundColor: '#4f3222',
+            backgroundColor: '#0C463C',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -80,7 +100,7 @@ export default function App() {
          options={{
           title: 'Tricepsz',
           headerStyle: {
-            backgroundColor: '#4f3222',
+            backgroundColor: '#0C463C',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {
@@ -91,7 +111,7 @@ export default function App() {
          options={{
           title: 'Váll',
           headerStyle: {
-            backgroundColor: '#4f3222',
+            backgroundColor: '#0C463C',
           },
           headerTintColor: '#fff',
           headerTitleStyle: {

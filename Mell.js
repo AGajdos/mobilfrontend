@@ -13,7 +13,7 @@ export default class Mell extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.2.112:3000/gyakorlatok')
+    return fetch('http://192.168.2.112:3000/gyakorlatok_mell')
       .then((response) => response.json())
       .then((responseJson) => {
 

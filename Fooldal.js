@@ -1,6 +1,6 @@
 import React from 'react';
-
 import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity } from 'react-native';
+import Collapsible from 'react-native-collapsible';
 
 export default class Mell extends React.Component {
 
@@ -13,7 +13,7 @@ export default class Mell extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.2.112:3000/gyakorlatok_hat')
+    return fetch('http://192.168.2.112:3000/izomcsoport')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -48,9 +48,21 @@ export default class Mell extends React.Component {
 
           /*<View style={{ border: "solid blue",width:600, marginLeft:"auto",marginRight:"auto",padding:20,marginBottom:10,borderRadius:20,}}>*/
           <View style={{marginLeft:"auto",marginRight:"auto",padding:40,marginBottom:10,  border: "solid blue", borderRadius:60,backgroundColor: "#B9F3EA"}}>
-          <Text style={{color:"brown",fontSize:40,textAlign:"center",marginTop:15,marginBottom:5,fontWeight:"bold" }}   >{item.gyakorlat_nev} </Text>
-          <Image  source={{uri: 'http://192.168.2.112:3000/'+item.gyakorlat_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
-          <Text style={{color:"brown",fontSize:16,textAlign:"center",marginTop:15,marginBottom:5,textAlign:"justify"}}   >{item.gyakorlat_leiras} </Text>
+          <Text style={{color:"brown",fontSize:40,textAlign:"center",marginTop:15,marginBottom:5,fontWeight:"bold" }}   >{item.izom_nev} </Text>
+          <Image  source={{uri: 'http://192.168.2.112:3000/'+item.izom_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
+          <TouchableOpacity
+          
+        style={{backgroundColor:"brown",width:30,height:30,flex:1,margin:10}}
+        onPress={()=>this.beviteltorles()}
+      ></TouchableOpacity>
+          <Collapsible collapsed={this.state.isCollapsed}>
+    
+	 <Text style={{padding: 10, fontSize: 42}}>
+         valami
+        </Text>
+
+  </Collapsible>
+
           
           </View>
         
