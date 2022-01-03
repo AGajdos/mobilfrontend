@@ -3,6 +3,7 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import Fooldal from './Fooldal';
+import Kereses from './Kereses';
 import Mell from './Mell';
 import Hat from './Hat';
 import Bicepsz from './Bicepsz';
@@ -14,7 +15,11 @@ function Fooldallap({ navigation }) {
     <Fooldal/>
   );
 }
-
+function Kereseslap({ navigation }) {
+  return (
+    <Kereses/>
+  );
+}
 function Melllap({ navigation }) {
   return (
     <Mell/>
@@ -51,7 +56,18 @@ export default function App() {
 
       <Drawer.Screen name="Fooldal" component={Fooldallap}
         options={{
-          title: 'Főpoldal',
+          title: 'Főoldal',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+        <Drawer.Screen name="Kereses" component={Kereseslap}
+        options={{
+          title: 'Keresés',
           headerStyle: {
             backgroundColor: '#0C463C',
           },
@@ -85,6 +101,18 @@ export default function App() {
           },   
         }}/>
 
+        <Drawer.Screen name="Vall" component={Valllap} 
+         options={{
+          title: 'Váll',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+        }}/>
+
         <Drawer.Screen name="Bicepsz" component={Bicepszlap} 
          options={{
           title: 'Bicepsz',
@@ -107,17 +135,7 @@ export default function App() {
             fontWeight: 'bold',
           },   
         }}/>
-        <Drawer.Screen name="Vall" component={Valllap} 
-         options={{
-          title: 'Váll',
-          headerStyle: {
-            backgroundColor: '#0C463C',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },   
-        }}/>
+        
       </Drawer.Navigator>
     </NavigationContainer>
   );
