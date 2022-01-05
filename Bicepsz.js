@@ -17,7 +17,7 @@ export default class App extends React.Component {
     this.arrayholder = [];
   }
   componentDidMount() {
-    return fetch('http://192.168.1.106:3000/izomcsoport')
+    return fetch('http://192.168.2.112:3000/izomcsoport')
       .then(response => response.json())
       .then(responseJson => {
         this.setState(

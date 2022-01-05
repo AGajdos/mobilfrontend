@@ -7,72 +7,66 @@ export default class Kereses extends Component {
     this.state = {
 
         nev: '',
-        komment:""
+        komment:"", 
+        dataSource2:[]
 
     };
   }
 
-felvitel=async ()=>{
-    //alert("megnyomva a gomb")
+kereses=async ()=>{
+    
 
-    if (this.state.nev=="" || this.state.komment=="")
-    {
-      alert("Add meg a nevet és a kommmentet!")
-      return
+    var bemenet={
+      bevitel1:this.state.nev
+     
     }
-    let bemenet={
-      bevitel1:this.state.nev,
-      bevitel2:this.state.komment,
-      bevitel3:this.props.akttema_bevitel
-    }
+fetch('http://192.168.2.112:3000/kereses', {
+  method: "POST",
+  body: JSON.stringify(bemenet),
+  headers: {"Content-type": "application/json; charset=UTF-8"}
+}
+)
+  .then((response) => response.json())
+  .the
+n((responseJson) => {
 
-    fetch('http://192.168.1.106:3000/kommentfelvitel',{
-      method: "POST",
-      body: JSON.stringify(bemenet),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    }
-       
-    )
-    .then((response) => response.text())
-    .then((szoveg) => {
+    this.setState({
+      isLoading2: false,
+      dataSource2: responseJson,
+    }, function(){
+      alert(JSON.stringify(this.state.dataSource2))
+    });
 
-    alert(szoveg)
-     this.props.frissit() 
+  })
+  .catch((error) =>{
+    console.error(error);
+  });
 
-})
     
 }
 
 
   render() {
     return (
-    <View style = {{backgroundColor:'darkblue',width:'80%',borderRadius:20,alignSelf:'center'}}>
+    <View style = {{backgroundColor:'darkblue',width:'90%',borderRadius:20,alignSelf:'center'}}>
       <View style={{padding: 10}}>
           <Text style={{padding: 10, fontSize: 22,color:'white',textAlign:'center'}}>
-              Név:
+              Keresés:
           </Text>
         <TextInput
           placeholderTextColor="white"
-          style={{height: 40,width:'50%',alignSelf:'center',backgroundColor:'blue',borderColor:'black',color:"white"}}
-          placeholder="Add meg a neved:"
+          style={{height: 40,width:'85%',alignSelf:'center',backgroundColor:'blue',borderColor:'black',color:"white",textAlign:'center',}}
+          placeholder="Add meg mit szerretmél megtalálni:"
           onChangeText={(nev) => this.setState({nev})}
           value={this.state.nev}
         />
 
-        <Text style={{paddingTop: 10, fontSize: 22,color:'white',textAlign:'center'}}>
-              Komment:
-          </Text>
-        <TextInput
-          placeholderTextColor="white"
-          style={{height: 120, width:'50%',alignSelf:'center',backgroundColor:'blue',marginBottom:5,textAlignVertical:'top',color:"white"}}
-          placeholder="Add meg a kommentet:"
-          onChangeText={(komment) => this.setState({komment})}
-          value={this.state.komment}
-        />
-         <TouchableOpacity
-          onPress={async ()=>this.felvitel()}>
+        
+        
+         <TouchableOpacity style={{padding:10}}
+          onPress={async ()=>this.kereses()}>
           <View style={styles.gomb}>
-            <Text style={styles.gombSzoveg}>Felvitel</Text>
+            <Text style={styles.gombSzoveg}>Keresés</Text>
           </View>
         </TouchableOpacity>
         

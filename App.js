@@ -134,6 +134,7 @@ export default function App() {
           headerTitleStyle: {
             fontWeight: 'bold',
           },   
+         
         }}/>
         
       </Drawer.Navigator>
