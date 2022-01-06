@@ -15,44 +15,97 @@ function Fooldallap({ navigation }) {
     <Fooldal/>
   );
 }
+
 function Kereseslap({ navigation }) {
   return (
-    <Kereses/>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Kereses/>
+      <Button
+      
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+      />
+    </View>
   );
 }
 function Melllap({ navigation }) {
   return (
-    <Mell/>
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Mell/>
+      <Button
+      
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+      />
+    </View>
   );
 }
-
-
 function Hatlap({ navigation }) {
   return (
-    <Hat/>
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Hat/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
   );
 }
+
+
 function Bicepszlap({ navigation }) {
   return (
-    <Bicepsz/>
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Bicepsz/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
   );
 }
 function Tricepszlap({ navigation }) {
   return (
-    <Tricepsz/>
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Tricepsz/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
   );
 }
 function Valllap({ navigation }) {
   return (
-    <Vall/>
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Vall/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
   );
 }
+
 const Drawer = createDrawerNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Drawer.Navigator initialRouteName="Fooldal">
+      
 
       <Drawer.Screen name="Fooldal" component={Fooldallap}
         options={{

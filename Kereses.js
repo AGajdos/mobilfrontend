@@ -14,13 +14,13 @@ export default class Kereses extends Component {
   }
 
 kereses=async ()=>{
-    
-
+    alert(this.state.nev)
+/*
     var bemenet={
       bevitel1:this.state.nev
      
     }
-fetch('http://192.168.2.112:3000/kereses', {
+fetch('http://192.168.1.106:3000/kereses', {
   method: "POST",
   body: JSON.stringify(bemenet),
   headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -41,7 +41,7 @@ n((responseJson) => {
   .catch((error) =>{
     console.error(error);
   });
-
+*/
     
 }
 
@@ -56,7 +56,7 @@ n((responseJson) => {
         <TextInput
           placeholderTextColor="white"
           style={{height: 40,width:'85%',alignSelf:'center',backgroundColor:'blue',borderColor:'black',color:"white",textAlign:'center',}}
-          placeholder="Add meg mit szerretmél megtalálni:"
+          placeholder="Add meg mit szeretnél megtalálni:"
           onChangeText={(nev) => this.setState({nev})}
           value={this.state.nev}
         />
