@@ -13,7 +13,7 @@ export default class Tricepsz extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.1.106:3000/gyakorlatok_tricepsz')
+    return fetch('http:/192.168.1.106:3000/gyakorlatok_tricepsz')
       .then((response) => response.json())
       .then((responseJson) => {
 

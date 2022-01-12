@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet,Text, TextInput, View,TouchableOpacity } from 'react-native';
+import { StyleSheet,Text, TextInput, View,TouchableOpacity,FlatList,Image } from 'react-native';
 
 export default class Kereses extends Component {
   constructor(props) {
@@ -8,14 +8,15 @@ export default class Kereses extends Component {
 
         nev: '',
         komment:"", 
+        dataSource:[],
         dataSource2:[]
 
     };
   }
 
 kereses=async ()=>{
-    alert(this.state.nev)
-/*
+    //alert(this.state.nev)
+
     var bemenet={
       bevitel1:this.state.nev
      
@@ -27,35 +28,34 @@ fetch('http://192.168.1.106:3000/kereses', {
 }
 )
   .then((response) => response.json())
-  .the
-n((responseJson) => {
+  .then((responseJson) => {
 
     this.setState({
       isLoading2: false,
       dataSource2: responseJson,
     }, function(){
-      alert(JSON.stringify(this.state.dataSource2))
+     // alert(JSON.stringify(this.state.dataSource2))
     });
 
   })
   .catch((error) =>{
     console.error(error);
   });
-*/
+
     
 }
 
 
   render() {
     return (
-    <View style = {{backgroundColor:'darkblue',width:'90%',borderRadius:20,alignSelf:'center'}}>
-      <View style={{padding: 10}}>
-          <Text style={{padding: 10, fontSize: 22,color:'white',textAlign:'center'}}>
+    <View style = {{backgroundColor:"#DCF9F4",width:'95%',borderRadius:20,alignSelf:'center',flex:1,marginBottom:10}}>
+      <View style={{padding: 10,backgroundColor: "#B9F3EA",borderRadius:60,marginBottom:10}}>
+          <Text style={{padding: 10, fontSize: 35,textAlign:'center',color:"brown"}}>
               Keresés:
           </Text>
         <TextInput
           placeholderTextColor="white"
-          style={{height: 40,width:'85%',alignSelf:'center',backgroundColor:'blue',borderColor:'black',color:"white",textAlign:'center',}}
+          style={{height: 40,width:'85%',alignSelf:'center',backgroundColor:'#0099ff',borderColor:'black',color:"white",textAlign:'center',}}
           placeholder="Add meg mit szeretnél megtalálni:"
           onChangeText={(nev) => this.setState({nev})}
           value={this.state.nev}
@@ -69,8 +69,32 @@ n((responseJson) => {
             <Text style={styles.gombSzoveg}>Keresés</Text>
           </View>
         </TouchableOpacity>
-        
+     </View>
+
+
+    { this.state.dataSource2 ? 
+      <FlatList
+      data={this.state.dataSource2}
+      renderItem={({item}) => 
+
+      /*<View style={{ border: "solid blue",width:600, marginLeft:"auto",marginRight:"auto",padding:20,marginBottom:10,borderRadius:20,}}>*/
+      <View style={{marginLeft:"auto",marginRight:"auto",padding:40,marginBottom:10,  border: "solid blue", borderRadius:60,backgroundColor: "#B9F3EA",}}>
+      <Text style={{color:"brown",fontSize:40,textAlign:"center",marginTop:15,marginBottom:5,fontWeight:"bold" }}   >{item.gyakorlat_nev} </Text>
+      <Image  source={{uri: 'http://192.168.1.106:3000/'+item.gyakorlat_kep}} style={{width:300,height:300,marginLeft:"auto",marginRight:"auto"}} />  
+      <Text style={{color:"brown",fontSize:16,textAlign:"center",marginTop:15,marginBottom:5,textAlign:"justify"}}   >{item.gyakorlat_leiras} </Text>
+      
       </View>
+
+    }
+
+
+      
+    />
+    
+    : null}
+
+
+
     </View>
     );
   }
