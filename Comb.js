@@ -2,7 +2,7 @@ import React from 'react';
 
 import {StyleSheet, FlatList, ActivityIndicator, Text, View, Image , TouchableOpacity } from 'react-native';
 
-export default class Tricepsz extends React.Component {
+export default class Comb extends React.Component {
 
   constructor(props){
     super(props);
@@ -13,7 +13,7 @@ export default class Tricepsz extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.2.112:3000/gyakorlatok_tricepsz')
+    return fetch('http://192.168.2.112:3000/gyakorlatok_comb')
       .then((response) => response.json())
       .then((responseJson) => {
 

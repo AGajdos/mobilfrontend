@@ -9,6 +9,8 @@ import Hat from './Hat';
 import Bicepsz from './Bicepsz';
 import Tricepsz from './Tricepsz';
 import Vall from './Vall';
+import Comb from './Comb';
+import Vadli from './Vadli';
 
 function Fooldallap({ navigation }) {
   return (
@@ -98,7 +100,34 @@ function Valllap({ navigation }) {
     
   );
 }
-
+function Comblap({ navigation }) {
+  return (
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Comb/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
+  );
+}
+function Vadlilap({ navigation }) {
+  return (
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Vadli/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
+  );
+}
 const Drawer = createDrawerNavigator();
 
 export default function App() {
@@ -189,7 +218,31 @@ export default function App() {
           },   
          
         }}/>
-        
+        <Drawer.Screen name="Comb" component={Comblap} 
+         options={{
+          title: 'Comb',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+         
+        }}/>
+        <Drawer.Screen name="Vadli" component={Vadlilap} 
+         options={{
+          title: 'Vádli',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+         
+        }}/>
+
       </Drawer.Navigator>
     </NavigationContainer>
   );
