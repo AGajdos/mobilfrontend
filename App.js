@@ -11,6 +11,8 @@ import Tricepsz from './Tricepsz';
 import Vall from './Vall';
 import Comb from './Comb';
 import Vadli from './Vadli';
+import Nevjegy from './Nevjegy';
+import Forum from './Forum';
 
 function Fooldallap({ navigation }) {
   return (
@@ -22,6 +24,18 @@ function Kereseslap({ navigation }) {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
       <Kereses/>
+      <Button
+      
+        onPress={() => navigation.navigate('Fooldal')}
+        title="Vissza a főoldarra"
+      />
+    </View>
+  );
+}
+function Forumlap({ navigation }) {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Forum/>
       <Button
       
         onPress={() => navigation.navigate('Fooldal')}
@@ -122,6 +136,20 @@ function Vadlilap({ navigation }) {
       <Button
         onPress={() => navigation.navigate('Fooldal')}
         title="Vissza a főoldarra"
+        
+      />
+    </View>
+    
+  );
+}
+function Nevjegylap({ navigation }) {
+  return (
+    
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center',backgroundColor:"#DCF9F4"}}>
+      <Nevjegy/>
+      <Button
+        onPress={() => navigation.navigate('Fooldal')}
+        title ="Vissza a főoldarra"
         
       />
     </View>
@@ -233,6 +261,30 @@ export default function App() {
         <Drawer.Screen name="Vadli" component={Vadlilap} 
          options={{
           title: 'Vádli',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+         
+        }}/>
+         <Drawer.Screen name="Forum" component={Forumlap} 
+         options={{
+          title: 'Fórum',
+          headerStyle: {
+            backgroundColor: '#0C463C',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },   
+         
+        }}/>
+        <Drawer.Screen name="Nevjegy" component={Nevjegylap} 
+         options={{
+          title: 'Névjegy',
           headerStyle: {
             backgroundColor: '#0C463C',
           },
